@@ -12,7 +12,19 @@ namespace Test02
         /// </summary>
         public Name(string first, string last)
         {
-            throw new NotImplementedException();
+            if(first == null  || last == null)
+            {
+                throw new ArgumentException();
+            }
+            else if (first == string.Empty || last == string.Empty)
+            {
+                throw new ArgumentException();
+            }
+            else
+            {
+                First = first;
+                Last = last; 
+            }
         }
 
         /// <summary>
@@ -32,7 +44,22 @@ namespace Test02
         {
             get
             {
-                throw new NotImplementedException();
+                if(First != string.Empty && Last != string.Empty)
+                {
+                    return First + " " + Last;
+                }
+                else if(First != string.Empty)
+                {
+                    return First;
+                }
+                else if (Last != string.Empty)
+                {
+                    return Last;
+                }
+                else
+                {
+                    return string.Empty;
+                }
             }
         }
 
@@ -41,7 +68,21 @@ namespace Test02
         /// </summary>
         public Name ChangeFirst(string first)
         {
-            throw new NotImplementedException();
+            if (first == null)
+            {
+                throw new ArgumentException();
+            }
+            else if (first == string.Empty)
+            {
+                throw new ArgumentException();
+            }
+            else
+            {
+                Name temp = new Name();
+                temp.First = first;
+                temp.Last = Last;
+                return temp;
+            }
         }
 
         /// <summary>
@@ -49,7 +90,22 @@ namespace Test02
         /// </summary>
         public Name ChangeLast(string last)
         {
-            throw new NotImplementedException();
+            if (last == null)
+            {
+                throw new ArgumentException();
+            }
+            else if (last == string.Empty)
+            {
+                throw new ArgumentException();
+            }
+            else
+            {
+                Name temp = new Name();
+                temp.First = First;
+                temp.Last = last;
+                return temp;
+
+            }
         }
 
         /// <summary>
@@ -57,7 +113,11 @@ namespace Test02
         /// </summary>
         public bool Equals(Name other)
         {
-            throw new NotImplementedException();
+            if(other.Full == Full)
+            {
+                return true;
+            }
+            return false;
         }
 
         #region "Pre-built code"
@@ -68,7 +128,7 @@ namespace Test02
         /// </summary>
         private Name()
         {
-
+            
         }
 
         /// <summary>
